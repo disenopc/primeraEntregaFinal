@@ -1,0 +1,202 @@
+body {
+    font-family: 'Source Serif 4', serif;
+}
+
+header {
+    background-image: url(../images/portadamatu.png);
+    background-size: cover;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portadah1,
+.portadah2,
+.portadah3,
+.portadah4,
+.portadah5 {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    font-family: 'Source Serif 4';
+    font-weight: bold;
+}
+
+.logoCuervo {
+    width: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+ul {
+    list-style: none;
+    padding-top: 100px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.redes {
+    display: flex;
+    flex-direction: row;
+}
+
+.redesSociales {
+    width: 30px;
+    color: white;
+    justify-content: space-between;
+}
+
+.menuSuperior {
+    display: none;
+}
+
+.menuSuperior:hover,
+.menuSuperior:focus {
+    color: #E8D637;
+    background-size: 100% 2px;
+}
+
+.encabezado {
+    background-color: #E8D637;
+    margin: 0;
+}
+
+.portadah4 {
+    color: #E8D637;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.portadah5 {
+    color: gray;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.comoComprar {
+    background-color: #E8D637;
+}
+
+.comoComprar img {
+    width: 200px;
+    margin-left: 250px;
+    padding: 0;
+    justify-content: last baseline;
+}
+
+.formularioConsulta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: gray;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.portadah4Form {
+    color: #E8D637;
+    font-size: 50px;
+}
+
+footer {
+    background-color: black;
+    color: #E8D637;
+}
+
+@media (min-width: 1024px) {
+    header {
+        background-image: url(../images/portadamatu.png);
+        background-size: cover;
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .portadah1,
+    .portadah2,
+    .portadah3,
+    .portadah4,
+    .portadah5 {
+        color: white;
+        margin: 0;
+        padding: 0;
+        font-weight: 800;
+        margin-left: 155px;
+        font-family: 'Source Serif 4';
+        font-weight: bold;
+    }
+    .portadah1 {
+        padding-top: 200px;
+    }
+    .logoCuervo {
+        width: 120px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .redes {
+        display: flex;
+        flex-direction: row;
+        margin-left: 24%;
+    }
+    ul {
+        list-style: none;
+        padding-top: 100px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .menuSuperior {
+        color: white;
+        text-decoration: none;
+        background-image: linear-gradient(white, #E8D637);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .3s;
+    }
+    .menuSuperior:hover,
+    .menuSuperior:focus {
+        color: #E8D637;
+        background-size: 100% 2px;
+    }
+    .encabezado {
+        background-color: #E8D637;
+        margin: 0;
+    }
+    .portadah4 {
+        color: #E8D637;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+    .portadah5 {
+        color: gray;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    .comoComprar {
+        background-color: #E8D637;
+    }
+    .comoComprar img {
+        width: 200px;
+        margin-left: 250px;
+        padding: 0;
+        justify-content: last baseline;
+    }
+    .formularioConsulta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: gray;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .portadah4Form {
+        color: #E8D637;
+        font-size: 50px;
+    }
+    footer {
+        background-color: black;
+        color: #E8D637;
+    }
+}
