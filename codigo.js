@@ -2,6 +2,9 @@
 let saludoDos;
 let nombre;
 let precioFinal;
+let cantidad;
+let comprasIng;
+let stockDispo;
 
 
 //Inicio de la interaccion
@@ -52,9 +55,9 @@ function stock() {
         if (nombre == "") {
             break
         }
-        let cantidad = parseInt(prompt("Ingrese la cantidad de bolsas deseada"));
-        let comprasIng = new Compra(nombre, cantidad);
-        let stockDispo = productoA.find((c) => c.nombre == nombre);
+        cantidad = parseInt(prompt("Ingrese la cantidad de bolsas deseada"));
+        comprasIng = new Compra(nombre, cantidad);
+        stockDispo = productoA.find((c) => c.nombre == nombre);
 
         if (stockDispo) {
             if ((cantidad > 0) && (cantidad < stockDispo.stock)) {
@@ -64,6 +67,8 @@ function stock() {
                 productoA[indice].stock = productoA[indice].stock - cantidad;
                 console.log("El stock disponible ", stockDispo);
                 console.log(compras);
+                productoA[indice].precio = productoA[indice].precio * cantidad;
+                console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " + productoA[indice].precio + " Cantidad" + cantidad);
                 continue;
             }
             alert("El articulo que usted desea NO se encuentra disponible");
@@ -74,15 +79,6 @@ function stock() {
 
 };
 
-// function encontrarPrecio() {
-//     if (stockDispo != "") {
-//         productoA[precioF].precio = productoA[precioF].precio * cantidad;
-//         console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " +
-//             productoA[precioF].precio + " Cantidad" +
-//             cantidad);
-//     }
-//     alert("No se encontro precio para ese producto");
-// }
 
 //Forma de pago
 function formaDePago() {
@@ -101,6 +97,5 @@ let ahora = new Date();
 saludo();
 mostrar("Bienvenido/a " + saludoDos + "! " + "Gracias por visitarnos.");
 stock();
-// encontrarPrecio();
 formaDePago();
 alert("Gracias por su compra" + ", " + ahora.toLocaleString());
