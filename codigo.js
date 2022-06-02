@@ -40,8 +40,12 @@ class Producto {
 const productoA = [{ nombre: "waltcan adulto", categoria: "Alimento Balanceado", precio: 1000, stock: 0 },
     { nombre: "waltcan cachorro", categoria: "Alimento Balanceado", precio: 1200, stock: 10 },
     { nombre: "jaspe adulto", categoria: "Alimento Balanceado", precio: 1000, stock: 15 },
-    { nombre: "jaspe cachorro", categoria: "Alimento Balanceado", precio: 1200, stock: 10 }
+    { nombre: "jaspe cachorro", categoria: "Alimento Balanceado", precio: 1200, stock: 10 },
+    { nombre: "pedigree adulto", categoria: "Alimento Balanceado", precio: 980, stock: 4 },
+    { nombre: "pedigree cachorro", categoria: "Alimento Balanceado", precio: 1560, stock: 2 },
+
 ];
+
 
 console.log(productoA);
 const compras = [];
@@ -66,8 +70,8 @@ function stock() {
                 productoA[indice].stock = productoA[indice].stock - cantidad;
                 console.log("El stock disponible ", stockDispo);
                 console.log(compras);
-                productoA[indice].precio = productoA[indice].precio * cantidad;
-                console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " + productoA[indice].precio + " Cantidad: " + cantidad + " bolsa/s.");
+                const precioL = productoA[indice].precio * cantidad;
+                console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " + precioL + " Cantidad: " + cantidad + " bolsa/s.");
                 continue;
             }
             alert("El articulo que usted desea NO se encuentra disponible");
@@ -79,16 +83,19 @@ function stock() {
 };
 
 
-// function comoPagar() {
-//     let metodoDePago = prompt("Desea pagar en efectivo? \nSi \nNo \n(Por favor responda si o no).");
-//     if (metodoDePago == "si") {
-//         return this.precio;
-//     } else {
-//         return this.precio * 1.1;
-//     }
-// }
+function comoPagar() {
+    let metodoDePago = prompt("Desea pagar en efectivo? \nSi \nNo \n(Por favor responda si o no).");
+    if (metodoDePago == "si") {
+        alert("Sobre el total de su compra tiene un 10% menos.");
+    } else {
+        let tarjeta = parseInt(prompt("En cuántas cuotas desea abonar?\n3 cuotas \n6 cuotas \n12 cuotas \n (Solo ingresar número)"));
+        if ((tarjeta == "6") || (tarjeta == "12")) {
+            alert("Sus cuotas tendran interes");
 
-// comoPagar();
+        }
+        alert("Sus cuotas NO tendran interes");
+    }
+}
 
 //Hora de compra
 let ahora = new Date();
@@ -96,4 +103,5 @@ let ahora = new Date();
 saludo();
 mostrar("Bienvenido/a " + saludoDos + "! " + "Gracias por visitarnos.");
 stock();
+comoPagar();
 mostrar("Gracias por su compra" + ", " + ahora.toLocaleString());
