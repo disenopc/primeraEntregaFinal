@@ -1,11 +1,6 @@
 // Determinacion de variables
 let saludoDos;
 let nombre;
-let precioFinal;
-let cantidad;
-let comprasIng;
-let stockDispo;
-
 
 //Inicio de la interaccion
 function saludo() {
@@ -20,11 +15,14 @@ let mostrar = function(resultado) {
 //Definicion de arrays con objetos
 class Compra {
     constructor(nombre, cantidad) {
-        this.nombre = nombre.toUpperCase();
-        this.cantidad = parseInt(cantidad);
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+
     }
 
 }
+
+
 class Producto {
     constructor(nombre, categoria, precio, stock) {
         this.nombre = nombre;
@@ -35,17 +33,18 @@ class Producto {
     }
 
 
+
+
 };
 //Definicion de Arrays
+const productoA = [{ nombre: "waltcan adulto", categoria: "Alimento Balanceado", precio: 1000, stock: 0 },
+    { nombre: "waltcan cachorro", categoria: "Alimento Balanceado", precio: 1200, stock: 10 },
+    { nombre: "jaspe adulto", categoria: "Alimento Balanceado", precio: 1000, stock: 15 },
+    { nombre: "jaspe cachorro", categoria: "Alimento Balanceado", precio: 1200, stock: 10 }
+];
 
-
-const productoA = [];
-const compras = [];
-productoA.push(new Producto("waltcan adulto", "Alimento Balanceado", 1200, 0));
-productoA.push(new Producto("waltcan cachorro", "Alimento Balanceado", 1000, 10));
-productoA.push(new Producto("jaspe adulto", "Alimento Balanceado", 1200, 15));
-productoA.push(new Producto("jaspe cachorro", "Alimento Balanceado", 1000, 10));
 console.log(productoA);
+const compras = [];
 
 //Primer paso, proceso de compra, control de stock
 function stock() {
@@ -55,9 +54,9 @@ function stock() {
         if (nombre == "") {
             break
         }
-        cantidad = parseInt(prompt("Ingrese la cantidad de bolsas deseada"));
-        comprasIng = new Compra(nombre, cantidad);
-        stockDispo = productoA.find((c) => c.nombre == nombre);
+        let cantidad = parseInt(prompt("Ingrese la cantidad de bolsas deseada"));
+        let comprasIng = new Compra(nombre, cantidad);
+        let stockDispo = productoA.find((c) => c.nombre == nombre);
 
         if (stockDispo) {
             if ((cantidad > 0) && (cantidad < stockDispo.stock)) {
@@ -68,28 +67,28 @@ function stock() {
                 console.log("El stock disponible ", stockDispo);
                 console.log(compras);
                 productoA[indice].precio = productoA[indice].precio * cantidad;
-                console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " + productoA[indice].precio + " Cantidad" + cantidad);
+                console.log("Ticket de venta. " + " Producto: " + nombre + " Precio: " + productoA[indice].precio + " Cantidad: " + cantidad + " bolsa/s.");
                 continue;
             }
             alert("El articulo que usted desea NO se encuentra disponible");
         }
         alert("Gracias por elegirnos");
     }
-    while (nombre !== "no");
+    while (nombre !== "");
 
 };
 
 
-//Forma de pago
-function formaDePago() {
-    precioFinal = prompt('Desea abonar en Efectivo?\n Si \n No \n(Favor de escribir la palabra)');
-    if (precioFinal == "si") {
-        alert("Se le realizará un descuento por pago en efectivo del 10%")
-    } else {
-        alert("Se le cobrará precio de lista");
+// function comoPagar() {
+//     let metodoDePago = prompt("Desea pagar en efectivo? \nSi \nNo \n(Por favor responda si o no).");
+//     if (metodoDePago == "si") {
+//         return this.precio;
+//     } else {
+//         return this.precio * 1.1;
+//     }
+// }
 
-    }
-}
+// comoPagar();
 
 //Hora de compra
 let ahora = new Date();
@@ -97,5 +96,4 @@ let ahora = new Date();
 saludo();
 mostrar("Bienvenido/a " + saludoDos + "! " + "Gracias por visitarnos.");
 stock();
-formaDePago();
-alert("Gracias por su compra" + ", " + ahora.toLocaleString());
+mostrar("Gracias por su compra" + ", " + ahora.toLocaleString());
